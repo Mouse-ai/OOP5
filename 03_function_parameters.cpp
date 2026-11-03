@@ -35,12 +35,12 @@ public:
         std::cout << "Desc()" << std::endl;
     }
 
-    Desc(Desc* obj)
+    Desc(Desc* obj): Base(obj)
     {
         std::cout << "Desc(Desc*)" << std::endl;
     }
 
-    Desc(Desc& obj)
+    Desc(Desc& obj): Base(obj)
     {
         std::cout << "Desc(Desc&)" << std::endl;
     }
@@ -107,6 +107,17 @@ void func3(Base& obj)
 }
 int main()
 {
+    std::cout << "=== Constructors ===" << std::endl;
+
+    {
+        Base base;
+        Base baseFromPtr(&base);
+        Base baseFromRef(base);
+
+        Desc desc;
+        Desc descFromPtr(&desc);
+        Desc descFromRef(desc);
+    }
     Base obj;
 
     std::cout << "\n=== func1 ===" << std::endl;

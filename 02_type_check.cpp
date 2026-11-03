@@ -49,10 +49,16 @@ public:
     }
 };
 int main() {
+
     Child obj;
     Base* ptr = &obj;
     Base baseObj;
     Base* badPtr = &baseObj;
+    std::cout << "classname: " << ptr->classname() << std::endl;
+
+    std::cout << "isA Child: " << ptr->isA("Child") << std::endl;
+    std::cout << "isA Desc: " << ptr->isA("Desc") << std::endl;
+    std::cout << "isA Base: " << ptr->isA("Base") << std::endl;
     if (ptr->isA("Child") )
     {
         Child* childPtr = static_cast<Child*>(ptr);
